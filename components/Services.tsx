@@ -1,4 +1,5 @@
 import RevealWrapper from './RevealWrapper'
+import styles from './Services.module.css'
 
 const services = [
   {
@@ -41,8 +42,8 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="services section" id="services">
-      <RevealWrapper className="services-intro">
+    <section className={`${styles.section} section`} id="services">
+      <RevealWrapper className={styles.intro}>
         <div>
           <div className="section-label">服务项目</div>
           <h2 className="section-title">
@@ -54,13 +55,13 @@ export default function Services() {
         </p>
       </RevealWrapper>
 
-      <div className="services-grid">
+      <div className={styles.grid}>
         {services.map((s) => (
-          <RevealWrapper key={s.num} className="service-card">
-            <span className="service-card-num">{s.num}</span>
-            <div className="service-icon">{s.icon}</div>
-            <div className="service-name">{s.name}</div>
-            <div className="service-desc">{s.desc}</div>
+          <RevealWrapper key={s.num} className={styles.card}>
+            <span className={styles.cardNum}>{s.num}</span>
+            <div className={styles.icon}>{s.icon}</div>
+            <div className={styles.name}>{s.name}</div>
+            <div className={styles.desc}>{s.desc}</div>
           </RevealWrapper>
         ))}
       </div>

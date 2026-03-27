@@ -1,0 +1,150 @@
+.section {
+  background: var(--ink);
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.left {
+  padding: 100px 80px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.left :global(.section-title) {
+  color: white;
+}
+
+.info {
+  margin-top: 48px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.icon {
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.textLabel {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.textValue {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  font-weight: 300;
+  white-space: pre-line;
+}
+
+.right {
+  padding: 100px 80px;
+}
+
+.right :global(.section-title) {
+  color: white;
+  margin-bottom: 40px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.formInput {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 14px 18px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.formInput:focus {
+  border-color: var(--gold);
+}
+
+.formInput::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  padding: 16px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 8px;
+}
+
+.submit:hover {
+  opacity: 0.85;
+}
+
+.submitted {
+  background: #2d6a2d;
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    padding: 60px 30px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .right {
+    padding: 60px 30px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+}

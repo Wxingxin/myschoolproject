@@ -1,4 +1,5 @@
 import RevealWrapper from './RevealWrapper'
+import styles from './Why.module.css'
 
 const reasons = [
   {
@@ -25,7 +26,7 @@ const reasons = [
 
 export default function Why() {
   return (
-    <section className="why section" id="why">
+    <section className={`${styles.section} section`} id="why">
       <RevealWrapper>
         <div className="section-label">关于我们</div>
         <h2 className="section-title">
@@ -36,12 +37,12 @@ export default function Why() {
         </p>
       </RevealWrapper>
 
-      <div className="why-grid">
+      <div className={styles.grid}>
         {reasons.map((r) => (
-          <RevealWrapper key={r.title} className="why-card">
-            <div className="why-icon">{r.icon}</div>
-            <div className="why-title">{r.title}</div>
-            <div className="why-desc">{r.desc}</div>
+          <RevealWrapper key={r.title} className={styles.card}>
+            <div className={styles.icon}>{r.icon}</div>
+            <div className={styles.title}>{r.title}</div>
+            <div className={styles.desc}>{r.desc}</div>
           </RevealWrapper>
         ))}
       </div>

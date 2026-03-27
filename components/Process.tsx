@@ -1,4 +1,5 @@
 import RevealWrapper from "./RevealWrapper";
+import styles from "./Process.module.css";
 
 const steps = [
   {
@@ -26,7 +27,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="process section" id="process">
+    <section className={`${styles.section} section`} id="process">
       <RevealWrapper>
         <div className="section-label">合作流程</div>
         <h2 className="section-title">
@@ -39,12 +40,12 @@ export default function Process() {
         </p>
       </RevealWrapper>
 
-      <div className="process-steps">
+      <div className={styles.steps}>
         {steps.map((s) => (
-          <RevealWrapper key={s.num} className="process-step">
-            <div className="step-circle">{s.num}</div>
-            <div className="step-title">{s.title}</div>
-            <div className="step-desc">{s.desc}</div>
+          <RevealWrapper key={s.num} className={styles.step}>
+            <div className={styles.circle}>{s.num}</div>
+            <div className={styles.title}>{s.title}</div>
+            <div className={styles.desc}>{s.desc}</div>
           </RevealWrapper>
         ))}
       </div>

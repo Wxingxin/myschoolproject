@@ -1,0 +1,28 @@
+.footer {
+  background: #070a0e;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 32px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  border-top: 1px solid rgba(201, 153, 58, 0.15);
+}
+
+.logo {
+  font-family: var(--font-serif), serif;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 24px 30px;
+  }
+}

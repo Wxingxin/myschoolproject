@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, ReactNode } from "react";
+import styles from "./RevealWrapper.module.css";
 
 interface RevealWrapperProps {
   children: ReactNode;
@@ -21,7 +22,7 @@ export default function RevealWrapper({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+            entry.target.classList.add(styles.visible);
             observer.unobserve(entry.target);
           }
         });
@@ -34,7 +35,7 @@ export default function RevealWrapper({
   }, []);
 
   return (
-    <div ref={ref} className={`reveal ${className}`}>
+    <div ref={ref} className={`${styles.reveal} ${className}`}>
       {children}
     </div>
   );

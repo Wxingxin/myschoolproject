@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import styles from "./Contact.module.css";
 
 const contactInfo = [
   {
@@ -44,54 +45,47 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact" id="contact">
-      {/* Left */}
-      <div className="contact-left">
+    <section className={styles.section} id="contact">
+      <div className={styles.left}>
         <div className="section-label">联系我们</div>
         <h2 className="section-title">
           开启您的
           <br />
           优质合作
         </h2>
-        <div className="contact-info">
+        <div className={styles.info}>
           {contactInfo.map((item) => (
-            <div key={item.label} className="contact-row">
-              <div className="contact-icon">{item.icon}</div>
+            <div key={item.label} className={styles.row}>
+              <div className={styles.icon}>{item.icon}</div>
               <div>
-                <div className="contact-text-label">{item.label}</div>
-                <div
-                  className="contact-text-val"
-                  style={{ whiteSpace: "pre-line" }}
-                >
-                  {item.value}
-                </div>
+                <div className={styles.textLabel}>{item.label}</div>
+                <div className={styles.textValue}>{item.value}</div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Right - Form */}
-      <div className="contact-right">
+      <div className={styles.right}>
         <div className="section-label">在线留言</div>
         <h2 className="section-title">发送询盘</h2>
 
-        <div className="form-row">
-          <div className="form-group">
-            <label className="form-label">您的姓名</label>
+        <div className={styles.formRow}>
+          <div className={styles.formGroup}>
+            <label className={styles.formLabel}>您的姓名</label>
             <input
               type="text"
-              className="form-input"
+              className={styles.formInput}
               placeholder="请输入姓名"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
             />
           </div>
-          <div className="form-group">
-            <label className="form-label">联系电话</label>
+          <div className={styles.formGroup}>
+            <label className={styles.formLabel}>联系电话</label>
             <input
               type="text"
-              className="form-input"
+              className={styles.formInput}
               placeholder="手机号码"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -99,21 +93,21 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="form-group">
-          <label className="form-label">公司名称</label>
+        <div className={styles.formGroup}>
+          <label className={styles.formLabel}>公司名称</label>
           <input
             type="text"
-            className="form-input"
+            className={styles.formInput}
             placeholder="您的公司名称（选填）"
             value={form.company}
             onChange={(e) => setForm({ ...form, company: e.target.value })}
           />
         </div>
 
-        <div className="form-group">
-          <label className="form-label">需求描述</label>
+        <div className={styles.formGroup}>
+          <label className={styles.formLabel}>需求描述</label>
           <textarea
-            className="form-input"
+            className={`${styles.formInput} ${styles.textarea}`}
             placeholder="请描述您的合作需求，例如：所需工厂类型、产品品类、合作规模等…"
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -121,7 +115,7 @@ export default function Contact() {
         </div>
 
         <button
-          className={`form-submit${submitted ? " submitted" : ""}`}
+          className={`${styles.submit} ${submitted ? styles.submitted : ""}`}
           onClick={handleSubmit}
         >
           {submitted ? "✓ 已收到，我们将尽快联系您" : "提 交 询 盘"}
