@@ -6,6 +6,18 @@
 
 // export default nextConfig;
 
+// import type { NextConfig } from "next";
+
+// const nextConfig: NextConfig = {
+//   output: "export",
+//   trailingSlash: true,
+//   images: {
+//     unoptimized: true,
+//   },
+// };
+
+// export default nextConfig;
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -14,6 +26,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: "/myschoolproject",
+  assetPrefix: "/myschoolproject",
 };
 
 export default nextConfig;
