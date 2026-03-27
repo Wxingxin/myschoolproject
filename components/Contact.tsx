@@ -1,65 +1,26 @@
-"use client";
-
-import { useState } from "react";
-import styles from "./Contact.module.css";
+'use client'
+import styles from './Contact.module.css'
 
 const contactInfo = [
-  {
-    icon: "📍",
-    label: "公司地址",
-    value: "中国浙江省宁波市\n宁波新智企业管理服务有限公司",
-  },
-  {
-    icon: "📞",
-    label: "联系电话",
-    value: "+86 (0574) XXXX-XXXX\n工作时间：周一至周六 9:00–18:00",
-  },
-  {
-    icon: "📧",
-    label: "电子邮箱",
-    value: "info@nbxinzhi.com",
-  },
-  {
-    icon: "💬",
-    label: "微信公众号",
-    value: "宁波新智企业管理服务\n扫码关注获取最新资讯",
-  },
-];
+  { icon: '📍', label: '公司地址', value: '中国浙江省宁波市\n宁波新智企业管理服务有限公司' },
+  { icon: '📞', label: '联系电话', value: '+86 (0574) XXXX-XXXX\n工作时间：周一至周六 9:00–18:00' },
+  { icon: '📧', label: '电子邮箱', value: 'info@nbxinzhi.com' },
+  { icon: '💬', label: '微信公众号', value: '宁波新智企业管理服务\n扫码关注获取最新资讯' },
+]
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    company: "",
-    message: "",
-  });
-
-  const handleSubmit = () => {
-    if (!form.name || !form.phone) return;
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setForm({ name: "", phone: "", company: "", message: "" });
-    }, 3000);
-  };
-
   return (
-    <section className={styles.section} id="contact">
+    <section className={styles.contact} id="contact">
       <div className={styles.left}>
-        <div className="section-label">联系我们</div>
-        <h2 className="section-title">
-          开启您的
-          <br />
-          优质合作
-        </h2>
+        <div className={styles.sectionLabel}>联系我们</div>
+        <h2 className={styles.sectionTitle}>开启您的<br />优质合作</h2>
         <div className={styles.info}>
           {contactInfo.map((item) => (
             <div key={item.label} className={styles.row}>
-              <div className={styles.icon}>{item.icon}</div>
+              <div className={styles.rowIcon}>{item.icon}</div>
               <div>
-                <div className={styles.textLabel}>{item.label}</div>
-                <div className={styles.textValue}>{item.value}</div>
+                <div className={styles.rowLabel}>{item.label}</div>
+                <div className={styles.rowVal} style={{ whiteSpace: 'pre-line' }}>{item.value}</div>
               </div>
             </div>
           ))}
@@ -67,60 +28,35 @@ export default function Contact() {
       </div>
 
       <div className={styles.right}>
-        <div className="section-label">在线留言</div>
-        <h2 className="section-title">发送询盘</h2>
-
-        <div className={styles.formRow}>
-          <div className={styles.formGroup}>
-            <label className={styles.formLabel}>您的姓名</label>
-            <input
-              type="text"
-              className={styles.formInput}
-              placeholder="请输入姓名"
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-            />
+        <div className={styles.sectionLabel}>合作方式</div>
+        <h2 className={styles.sectionTitle}>如何与我们<br />取得联系</h2>
+        <p className={styles.rightDesc}>
+          您可以通过电话、邮件或微信公众号与我们取得联系。我们的团队将在一个工作日内回复您的咨询，并为您提供专业的工厂资源匹配建议。
+        </p>
+        <div className={styles.steps}>
+          <div className={styles.step}>
+            <div className={styles.stepNum}>01</div>
+            <div>
+              <div className={styles.stepTitle}>拨打电话或发送邮件</div>
+              <div className={styles.stepDesc}>告知我们您的行业类型、采购需求与大致规模</div>
+            </div>
           </div>
-          <div className={styles.formGroup}>
-            <label className={styles.formLabel}>联系电话</label>
-            <input
-              type="text"
-              className={styles.formInput}
-              placeholder="手机号码"
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            />
+          <div className={styles.step}>
+            <div className={styles.stepNum}>02</div>
+            <div>
+              <div className={styles.stepTitle}>顾问一对一沟通</div>
+              <div className={styles.stepDesc}>专属顾问深入了解需求，48小时内提供初步方案</div>
+            </div>
+          </div>
+          <div className={styles.step}>
+            <div className={styles.stepNum}>03</div>
+            <div>
+              <div className={styles.stepTitle}>精准推荐合作工厂</div>
+              <div className={styles.stepDesc}>匹配最适合的工厂资源，安排实地考察与洽谈</div>
+            </div>
           </div>
         </div>
-
-        <div className={styles.formGroup}>
-          <label className={styles.formLabel}>公司名称</label>
-          <input
-            type="text"
-            className={styles.formInput}
-            placeholder="您的公司名称（选填）"
-            value={form.company}
-            onChange={(e) => setForm({ ...form, company: e.target.value })}
-          />
-        </div>
-
-        <div className={styles.formGroup}>
-          <label className={styles.formLabel}>需求描述</label>
-          <textarea
-            className={`${styles.formInput} ${styles.textarea}`}
-            placeholder="请描述您的合作需求，例如：所需工厂类型、产品品类、合作规模等…"
-            value={form.message}
-            onChange={(e) => setForm({ ...form, message: e.target.value })}
-          />
-        </div>
-
-        <button
-          className={`${styles.submit} ${submitted ? styles.submitted : ""}`}
-          onClick={handleSubmit}
-        >
-          {submitted ? "✓ 已收到，我们将尽快联系您" : "提 交 询 盘"}
-        </button>
       </div>
     </section>
-  );
+  )
 }
